@@ -26,7 +26,7 @@ router.get("/", async (req, res) => {
   }
 });
 
-router.post("/test-api", async (req, res) => {
+router.get("/test-api", async (req, res) => {
   try {
     const response = await OpenAI_API.createImage({
       prompt: "Hello",
