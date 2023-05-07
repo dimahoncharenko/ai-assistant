@@ -18,7 +18,9 @@
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
-    "dev": "nodemon ./index.ts"
+    "dev": "nodemon ./index.ts",
+    "build": "npx tsc ",
+    "start": "node ./build/index.js"
   },
   "author": "",
   "license": "ISC",
