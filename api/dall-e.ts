@@ -26,6 +26,26 @@ router.get("/", async (req, res) => {
   }
 });
 
+router.post("/test-api", async (req, res) => {
+  try {
+    const response = await OpenAI_API.createImage({
+      prompt: "Hello",
+      n: 1,
+      size: "1024x1024",
+      response_format: "b64_json",
+    });
+
+    const image = response.data.data[0].b64_json;
+
+    res.json({ photo: image });
+  } catch (err) {
+    if (err instanceof Error) {
+      console.error(err);
+      res.json(err.message);
+    }
+  }
+});
+
 router.post("/", checkParams(["prompt"]), async (req, res) => {
   try {
     const { prompt } = req.body;
